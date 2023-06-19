@@ -1,0 +1,43 @@
+@font-face {
+    font-family: customFont;
+    src: url("../roboto-main/RobotoMono-VariableFont_wght.ttf");
+}
+
+* {
+    --header-and-footer: #465362;
+    --sidebar-background: #C4D7F2;
+    --sidebar-darker-background: #8a97aa;
+    --todo-background: #F0F7EE;
+
+    font-family: customFont;
+
+}
+
+body {
+    height: 100vh;
+}
+
+
+#container {
+    display: grid;
+    grid-template-rows: 1fr 10fr 1fr;
+    height: 100%;
+}
+
+#content {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+}
+
+navbar {
+    background-color: var(--sidebar-background);
+}
+
+article {
+    background-color: var(--todo-background);
+}
+
+header,
+footer {
+    background-color: var(--header-and-footer);
+}
