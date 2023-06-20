@@ -76,6 +76,9 @@ navbar > div > div:hover {
 
 article {
     background-color: var(--todo-background);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 footer {
