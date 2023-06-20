@@ -5,7 +5,7 @@ function createInitialWebpage() {
     container.setAttribute("id", "container");
 
     var header = document.createElement("header");
-    header.textContent = "Header";
+    header.textContent = "✔ To-Do List";
 
     var content = document.createElement("main");
     content.setAttribute("id", "content");
@@ -16,7 +16,7 @@ function createInitialWebpage() {
     todoSection.textContent = "To Do";
 
     var footer = document.createElement("footer");
-    footer.textContent = "Footer";
+    footer.textContent = "Copyright © 2023 jhagg26";
 
 
     content.appendChild(navbar);
