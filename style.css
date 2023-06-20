@@ -20,11 +20,14 @@ body {
 
 header {
     justify-content: left;
+    padding-left: 16px;
+    font-size: 32px;
+    font-weight: 600;
 }
 
 #container {
     display: grid;
-    grid-template-rows: 1fr 10fr 1fr;
+    grid-template-rows: 1fr 15fr 1fr;
     height: 100%;
 }
 
@@ -35,15 +38,31 @@ header {
 
 navbar {
     background-color: var(--sidebar-background);
+    padding-left: 16px;
+    padding-top: 32px;
+}
+
+#tasksSection {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+#tasksSection > div,
+#projectsSection > div{
+
+    height: 35px;
+    width: 90%;
+
+    border-radius: 5px;
+    padding-left: 4px;
 }
 
 navbar > div > div {
+
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    gap: 8px;
-
-    padding: 0px 8px;
 }
 
 navbar > div > div img{
