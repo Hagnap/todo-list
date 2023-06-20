@@ -73,6 +73,7 @@ function populateNavbar() {
     projectsText.textContent = "Projects";
 
     var addProjects = document.createElement('div');
+    addProjects.setAttribute("id", "addProjects");
     addProjects.textContent = "+ Add Project";
     
     projectsSection.appendChild(projectsText);
