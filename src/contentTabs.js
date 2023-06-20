@@ -21,6 +21,7 @@ function displayAddNewProject() {
     var taskNameLabel = document.createElement("label");
     taskNameLabel.textContent = "Name of Task\t";
     var taskNameInput = document.createElement("input");
+    taskNameInput.required = true;
     taskNameDiv.appendChild(taskNameLabel);
     taskNameDiv.appendChild(taskNameInput);
     form.appendChild(taskNameDiv);
@@ -29,6 +30,7 @@ function displayAddNewProject() {
     var taskDescriptionLabel = document.createElement("label");
     taskDescriptionLabel.textContent = "Task Description\t";
     var taskDescriptionInput = document.createElement("input");
+    taskDescriptionInput.required = true;
     taskDescriptionDiv.appendChild(taskDescriptionLabel);
     taskDescriptionDiv.appendChild(taskDescriptionInput);
     form.appendChild(taskDescriptionDiv);
@@ -37,6 +39,7 @@ function displayAddNewProject() {
     var taskDueDateLabel = document.createElement("label");
     taskDueDateLabel.textContent = "Task Due Date Month\t";
     var taskDueDateInput = document.createElement("input");
+    taskDueDateInput.required = true;
     taskDueDateInput.setAttribute("type", "date");
     taskDueDateDiv.appendChild(taskDueDateLabel);
     taskDueDateDiv.appendChild(taskDueDateInput);
@@ -46,6 +49,8 @@ function displayAddNewProject() {
     var taskPriorityLabel = document.createElement("label");
     taskPriorityLabel.textContent = "Priority (1 - 3)\t";
     var taskPriorityInput = document.createElement("input");
+    taskPriorityInput.required = true;
+    taskPriorityInput.setAttribute("type", "number");
     taskPriorityInput.setAttribute("min", "1");
     taskPriorityInput.setAttribute("max", "3");
     taskPriorityDiv.appendChild(taskPriorityLabel);
