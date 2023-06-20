@@ -1,3 +1,5 @@
+import * as content from "./contentTabs";
+
 function createInitialWebpage() {
 
     // Create container that stores ALL of the content
@@ -73,7 +75,7 @@ function populateNavbar() {
     projectsText.textContent = "Projects";
 
     var addProjects = document.createElement('div');
-    addProjects.setAttribute("id", "addProjects");
+    addProjects.setAttribute("id", "addProject");
     addProjects.textContent = "+ Add Project";
     
     projectsSection.appendChild(projectsText);
@@ -83,7 +85,39 @@ function populateNavbar() {
     navbar.appendChild(projectsSection);
 }
 
+function addEventLisiteners() {
+    var divs = document.querySelectorAll("navbar > div > div");
+    divs.forEach(item => {
+
+        item.addEventListener("click", () => {
+            
+            switch(item.getAttribute("id")) {
+                case "tasks":
+                    content.displayAllTasks();
+                    break;
+            
+                case "today":
+                    content.displayTodaysTasks();
+                    break;
+                    
+                case "month":
+                    content.displayMonthsTask();
+                    break;
+            
+                case "addProject":
+                    content.displayAddNewProject();
+                    break;
+    
+                default:
+                    content.displayAllTasks();
+            }
+        })
+    }) 
+}
 
 // MAIN CODE
 createInitialWebpage();
 populateNavbar();
+addEventLisiteners();
+
+content.displayAllTasks();
