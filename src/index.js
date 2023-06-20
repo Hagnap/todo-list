@@ -26,7 +26,7 @@ function createInitialWebpage() {
     container.appendChild(content);
     container.appendChild(footer);
 
-    return container;
+    document.body.appendChild(container);
 }
 
 function populateNavbar() {
@@ -84,9 +84,6 @@ function populateNavbar() {
 }
 
 
-
-const container = createInitialWebpage();
-document.body.appendChild(container);
-
-
+// MAIN CODE
+createInitialWebpage();
 populateNavbar();
