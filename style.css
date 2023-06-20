@@ -18,6 +18,9 @@ body {
     margin: 0;
 }
 
+header {
+    justify-content: left;
+}
 
 #container {
     display: grid;
@@ -34,11 +37,25 @@ navbar {
     background-color: var(--sidebar-background);
 }
 
+navbar > div > div {
+    
+}
+
+navbar > div > div:hover {
+    background-color: var(--sidebar-darker-background);
+}
+
 article {
     background-color: var(--todo-background);
+}
+
+footer {
+    justify-content: center;
 }
 
 header,
 footer {
     background-color: var(--header-and-footer);
+    display: flex;
+    align-items: center;
 }
