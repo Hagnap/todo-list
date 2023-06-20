@@ -38,7 +38,17 @@ navbar {
 }
 
 navbar > div > div {
-    
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 8px;
+
+    padding: 0px 8px;
+}
+
+navbar > div > div img{
+    height: 30px;
+    width: 30px;
 }
 
 navbar > div > div:hover {
