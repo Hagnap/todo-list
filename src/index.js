@@ -56,7 +56,7 @@ function populateNavbar() {
     var month = document.createElement('div');
     month.setAttribute("id", "month");
     var monthImg = document.createElement('img');
-    monthImg.src = "../images/month.png";
+    monthImg.src = "../images/month.svg";
     month.appendChild(monthImg);
     var monthText = document.createElement('p');
     monthText.textContent = "Month";
