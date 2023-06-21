@@ -8,6 +8,7 @@
     --sidebar-background: #C4D7F2;
     --sidebar-darker-background: #8a97aa;
     --todo-background: #F0F7EE;
+    --todo-darker-background: rgb(197, 204, 196);
 
     font-family: customFont;
 
@@ -76,13 +77,63 @@ navbar > div > div:hover {
 
 article {
     background-color: var(--todo-background);
+    padding-top: 32px;
+
     display: flex;
     justify-content: center;
+    align-items: flex-start;
+}
+
+#all-tasks {
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
+}
+
+#content-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 1fr);
+}
+
+.grid-item {
+
 }
 
 footer {
     justify-content: center;
+}
+
+#project-form {
+
+    height: 20%;
+}
+
+#task-form {
+
+    height: 60%;
+}
+
+form {
+    border-radius: 5px;
+    outline: 1px solid black;
+    padding: 12px;
+    background-color: var(--todo-darker-background);
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, minmax(50px, 75px));
+    justify-items: space-between;
+    align-items: center;
+
+}
+
+legend {
+    width: 100%;
+    text-align: center;
+}
+
+form button {
+    justify-self: center;
 }
 
 header,
