@@ -119,5 +119,4 @@ function addEventLisiteners() {
 createInitialWebpage();
 populateNavbar();
 addEventLisiteners();
-
 content.displayAllTasks();

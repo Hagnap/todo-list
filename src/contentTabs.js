@@ -1,9 +1,12 @@
 function resetDiv() {
     var content = document.querySelector("article");
     content.innerHTML = "";
+    content.setAttribute("id", "");
+    content = null;
 }
 
-function displayAddNewProject() {
+function displayAddNewTask() {
+    console.log("sadasdaasdasd");
 
     resetDiv();
 
@@ -12,9 +15,10 @@ function displayAddNewProject() {
     var content = document.querySelector("article");
 
     var form = document.createElement("form");
+    form.setAttribute("id", "task-form");
 
     var formLegend = document.createElement("legend");
-    formLegend.textContent = "Add New Project";
+    formLegend.textContent = "Add New Task";
     form.appendChild(formLegend);
 
     var taskNameDiv = document.createElement("div");
@@ -65,17 +69,69 @@ function displayAddNewProject() {
     content.appendChild(form);
 }
 
+function displayAddNewProject() {
+
+    resetDiv();
+
+    console.log("In `displayAddNewProject()`");
+
+    var content = document.querySelector("article");
+
+    var form = document.createElement("form");
+    form.setAttribute("id", "project-form");
+
+    var formLegend = document.createElement("legend");
+    formLegend.textContent = "Add New Project";
+    form.appendChild(formLegend);
+
+    var projectNameDiv = document.createElement("div");
+    var projectNameLabel = document.createElement("label");
+    projectNameLabel.textContent = "Name of Project\t";
+    var projectNameInput = document.createElement("input");
+    projectNameInput.required = true;
+    projectNameDiv.appendChild(projectNameLabel);
+    projectNameDiv.appendChild(projectNameInput);
+    form.appendChild(projectNameDiv);
+
+    var submitBtn = document.createElement("button");
+    submitBtn.setAttribute("type", "submit");
+    submitBtn.textContent = "Submit";
+    form.appendChild(submitBtn);
+
+    content.appendChild(form);
+}
+
 function displayAllTasks() {
 
     resetDiv();
 
     console.log("In `displayAllTasks()`");
 
-    var content = document.querySelector("article");
-    var text = document.createElement("p");
-    text.textContent = "All Tasks";
+    var article = document.querySelector("article");
+    article.setAttribute("id", "all-tasks");
 
-    content.appendChild(text);
+    var contentGrid = document.createElement("div");
+    contentGrid.setAttribute("id", "content-grid");
+    
+
+    var contentGridTopSection = document.createElement("div");
+    contentGrid.setAttribute("id", "contentGridTopSection");
+
+    var allTasksHeader = document.createElement("h1");
+    allTasksHeader.textContent = "All Tasks";
+
+    var addTaskBtn = document.createElement("button");
+    addTaskBtn.textContent = "Add Task";
+    addTaskBtn.addEventListener("click", () => {
+        displayAddNewTask();
+    })
+
+    contentGridTopSection.appendChild(allTasksHeader);
+    contentGridTopSection.appendChild(addTaskBtn);
+
+    contentGrid.appendChild(contentGridTopSection);
+
+    article.appendChild(contentGrid);
 }
 
 function displayTodaysTasks() {
@@ -104,4 +160,4 @@ function displayMonthsTask() {
     content.appendChild(text);
 }
 
-export { displayAllTasks, displayMonthsTask, displayAddNewProject, displayTodaysTasks };
+export { displayAllTasks, displayMonthsTask, displayAddNewTask, displayAddNewProject, displayTodaysTasks };
