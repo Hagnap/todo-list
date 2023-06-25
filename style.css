@@ -37,6 +37,42 @@ header {
     grid-template-columns: 1fr 5fr;
 }
 
+#contentGridTopSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#contentGridTopSection button {
+    width: 75%;
+}
+
+.task-div {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    gap: 16px;
+}
+
+.task-div-left {
+    
+}
+
+.task-div-right {
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.task-div-name {
+    grid-row: 1 / 2;
+}
+
+.task-div-dueDate {
+    grid-row: 2 / 3;
+}
+
+.task-div-priority {
+    grid-row: 3 / 4;
+}
+
 navbar {
     background-color: var(--sidebar-background);
     padding-left: 16px;
@@ -90,10 +126,17 @@ article {
     align-items: center;
 }
 
+
 #content-grid {
+    width: 80%;
     display: grid;
     grid-template-columns: repeat(auto-fit, 1fr);
 }
+
+#contentGridTopSection > button {
+    width: fit-content;
+}
+
 
 .grid-item {
 
