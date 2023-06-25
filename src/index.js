@@ -23,7 +23,6 @@ function createInitialWebpage() {
     var footer = document.createElement("footer");
     footer.textContent = "Copyright © 2023 jhagg26";
 
-
     content.appendChild(navbar);
     content.appendChild(todoSection);
     
@@ -119,40 +118,8 @@ function addEventLisiteners() {
 }
 
 // MAIN CODE
-
 createInitialWebpage();
 populateNavbar();
 addEventLisiteners();
 content.displayAllTasks();
-
-/*
-var taskOne = task.Task("Task One", "An easy task", new Date("2002-02-02"), 1);
-task.addTask(taskOne);
-var taskTwo = task.Task("Task Two", "An easy-ish task", new Date("2022-02-02"), 1);
-task.addTask(taskTwo);
-var taskThree = task.Task("Task Three", "An easy task", new Date("2002-02-02"), 1);
-task.addTask(taskThree);
-var taskFour = task.Task("Task Four", "An easy-ish task", new Date("2022-02-02"), 1);
-task.addTask(taskFour);
-var taskFive = task.Task("Task Five", "An easy task", new Date("2002-02-02"), 1);
-task.addTask(taskFive);
-var taskSix = task.Task("Task Six", "An easy-ish task", new Date("2022-02-02"), 1);
-task.addTask(taskSix);
-var taskSeven = task.Task("Task Seven", "An easy task", new Date("2002-02-02"), 1);
-task.addTask(taskSeven);
-var taskEight = task.Task("Task Eight", "An easy-ish task", new Date("2022-02-02"), 1);
-task.addTask(taskEight);
-
-
-
-if(tasks.allTasks.length > 0)
-{
-    tasks.allTasks.forEach(task => {
-
-        //if(!task == null)
-        //console.log(task);
-        displayTask(task);
-    })
-}
-*/
 

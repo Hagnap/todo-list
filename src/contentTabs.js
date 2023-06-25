@@ -167,6 +167,10 @@ function displayAllTasks() {
     contentGrid.appendChild(contentGridTopSection);
 
     article.appendChild(contentGrid);
+
+    task.taskCollection.tasks.forEach(element => {
+        task.displayTask(element);
+    });
 }
 
 function displayTodaysTasks() {
