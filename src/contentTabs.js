@@ -1,6 +1,8 @@
 import { Project } from "./project";
 import * as task from "./task";
 
+let date = new Date();
+
 function saveFormData() {
 
 
@@ -139,6 +141,7 @@ function displayAddNewProject() {
 function displayAllTasks() {
 
     resetDiv();
+    var contentGrid = document.querySelector("#content-grid");
 
     console.log("In `displayAllTasks()`");
 
@@ -179,24 +182,66 @@ function displayTodaysTasks() {
 
     console.log("In `displayTodaysTasks()`");
 
-    var content = document.querySelector("article");
-    var text = document.createElement("p");
-    text.textContent = "Tasks For Today";
+    var article = document.querySelector("article");
+    article.setAttribute("id", "todays-tasks");
 
-    content.appendChild(text);
+    var contentGrid = document.createElement("div");
+    contentGrid.setAttribute("id", "content-grid");
+
+    var contentGridTopSection = document.createElement("div");
+    contentGridTopSection.setAttribute("id", "contentGridTopSection");
+
+    var allTasksHeader = document.createElement("h1");
+    allTasksHeader.textContent = "Today's Tasks";
+
+    contentGridTopSection.appendChild(allTasksHeader);
+
+    contentGrid.appendChild(contentGridTopSection);
+
+    article.appendChild(contentGrid);
+
+    var todaysTask = task.taskCollection.tasks.filter(t => t.dueDate.split(" ")[1] == date.toISOString().split("T")[0]);
+
+    todaysTask.forEach((t) => {
+        task.displayTask(t);
+    });
 }
 
 function displayMonthsTask() {
 
     resetDiv();
 
-    console.log("In `displayMonthsTask()`");
+    console.log("In `displayTodaysTasks()`");
 
-    var content = document.querySelector("article");
-    var text = document.createElement("p");
-    text.textContent = "Tasks For This Month";
+    var article = document.querySelector("article");
+    article.setAttribute("id", "todays-tasks");
 
-    content.appendChild(text);
+    var contentGrid = document.createElement("div");
+    contentGrid.setAttribute("id", "content-grid");
+
+    var contentGridTopSection = document.createElement("div");
+    contentGridTopSection.setAttribute("id", "contentGridTopSection");
+
+    var allTasksHeader = document.createElement("h1");
+    allTasksHeader.textContent = "Today's Tasks";
+
+    contentGridTopSection.appendChild(allTasksHeader);
+
+    contentGrid.appendChild(contentGridTopSection);
+
+    article.appendChild(contentGrid);
+
+    var monthsTask = task.taskCollection.tasks.filter(t => new Date(t.dueDate.split(" ")[1]).getMonth() == date.getMonth());
+
+    task.taskCollection.tasks.forEach((t) => {
+        console.log(new Date(t.dueDate.split(" ")[1]).getMonth());
+    });
+
+    
+    monthsTask.forEach((t) => {
+        task.displayTask(t);
+    });
+    
 }
 
 export { displayAllTasks, displayMonthsTask, displayAddNewTask, displayAddNewProject, displayTodaysTasks };

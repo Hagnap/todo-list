@@ -30,7 +30,7 @@ const taskCollection = (() => {
 
 function displayTask(task) {
     var contentGrid = document.querySelector("#content-grid");
-    console.log(contentGrid);
+    //console.log(contentGrid);
     var taskDiv = document.createElement("div");
     taskDiv.setAttribute("class", "task-div");
     var taskDivRight = document.createElement("div");
@@ -63,6 +63,7 @@ function addTask(task) {
 
     window.localStorage.setItem("allTasks", JSON.stringify(taskCollection));
 
+    //location.reload();
     content.displayAllTasks();
 }
 
