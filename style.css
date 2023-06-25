@@ -48,9 +48,16 @@ header {
 }
 
 .task-div {
+    outline: 1px solid black;
+    border-radius: 5px;
+
     display: grid;
-    grid-template-columns: 1fr 5fr;
-    gap: 16px;
+    grid-template-columns: 2fr 6fr;
+    gap: 32px;
+
+    margin: 8px;
+    padding: 8px;
+    width: clamp(50%, 70%, 80%);
 }
 
 .task-div-left {
@@ -130,6 +137,7 @@ article {
 #content-grid {
     width: 80%;
     display: grid;
+    justify-items: center;
     grid-template-columns: repeat(auto-fit, 1fr);
 }
 
@@ -140,6 +148,7 @@ article {
 
 .grid-item {
 
+    
 }
 
 footer {
