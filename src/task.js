@@ -16,7 +16,6 @@ const taskCollection = (() => {
     if(storedTasks) {
         console.log("Tasks are present");
         for(let index in storedTasks.tasks) {
-            console.log(storedTasks.tasks[index]);
             tasks.push(storedTasks.tasks[index]);
         }
     }
@@ -24,7 +23,6 @@ const taskCollection = (() => {
         console.log("No tasks are present");
     }
 
-    console.table(tasks);
     return { tasks };
 })();
 

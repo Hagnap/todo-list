@@ -233,11 +233,6 @@ function displayMonthsTask() {
 
     var monthsTask = task.taskCollection.tasks.filter(t => new Date(t.dueDate.split(" ")[1]).getMonth() == date.getMonth());
 
-    task.taskCollection.tasks.forEach((t) => {
-        console.log(new Date(t.dueDate.split(" ")[1]).getMonth());
-    });
-
-    
     monthsTask.forEach((t) => {
         task.displayTask(t);
     });
