@@ -1,11 +1,17 @@
 import { Project } from "./project";
-import { Task } from "./task";
+import * as task from "./task";
 
 function saveFormData() {
-    console.log(`Task Name: ${document.getElementById("task-name")}`);
-    console.log(`Task Description: ${document.getElementById("task-description")}`);
-    console.log(`Task Due Date: ${document.getElementById("task-duedate")}`);
-    console.log(`Task Priority: ${document.getElementById("task-priority")}`);
+
+
+    var newTask = task.Task(
+        document.getElementById("task-name").value,
+        document.getElementById("task-description").value,
+        document.getElementById("task-duedate").value,
+        document.getElementById("task-priority").value
+    );
+
+    task.addTask(newTask);
 }
 
 function resetDiv() {
@@ -77,8 +83,24 @@ function displayAddNewTask() {
     var submitBtn = document.createElement("button");
     submitBtn.setAttribute("type", "submit");
     submitBtn.textContent = "Submit";
-    submitBtn.addEventListener("click", saveFormData);
+    //submitBtn.addEventListener("submit", saveFormData);
+    //submitBtn.onclick = saveFormData;
     form.appendChild(submitBtn);
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        var newTask = task.Task(
+            document.getElementById("task-name").value,
+            document.getElementById("task-description").value,
+            document.getElementById("task-duedate").value,
+            document.getElementById("task-priority").value
+        );
+    
+        console.log(newTask);
+        task.addTask(newTask);
+        form.reset();
+    
+    });
 
     content.appendChild(form);
 }
