@@ -1,6 +1,6 @@
 import * as content from "./contentTabs";
 
-function Task(name, description, dueDate, priority) {
+const Task = (name, description, dueDate, priority) => {
 
     dueDate = dueDate.toLocaleString().split(',')[0];
     dueDate = `Due: ${dueDate}`;

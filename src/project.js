@@ -1,4 +1,4 @@
-function Project() {
+const Project = () => {
     tasks = [];
 
     const addTask = (task) => {
