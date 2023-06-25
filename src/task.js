@@ -79,16 +79,49 @@ function displayTask(task) {
 */
 
 const taskCollection = (() => {
-    let tasks = [];
-    const addTask = (task) => {
-
+    let tasks = []
+    let storedTasks = JSON.parse(window.localStorage.getItem("allTasks"));
+    
+    if(storedTasks) {
+        console.log("Tasks are present");
+        for(let index in storedTasks.tasks) {
+            console.log(storedTasks.tasks[index]);
+            tasks.push(storedTasks.tasks[index]);
+        }
+    }
+    else {
+        console.log("No tasks are present");
     }
 
-    return { tasks, addTask };
+    /*
+    if(storedTasks != null) {
+        console.log(typeof(storedTasks.tasks));
+
+        console.log(storedTasks.tasks);
+
+        Array(storedTasks.tasks).forEach(element => {
+            tasks.push(element);
+        });
+    }*/
+
+    //tasks = tasks == null ? [] : Array(tasks);
+    /*
+    if(storedTasks != null) {
+        storedTasks.array.forEach(element => {
+            tasks.push(element);
+        });
+    }
+    */
+    console.table(tasks);
+    return { tasks };
 })();
 
 function addTask(task) {
+    taskCollection.tasks.push(task);
+    console.table(taskCollection.tasks);
 
+    window.localStorage.setItem("allTasks", JSON.stringify(taskCollection));
+    //console.log(JSON.parse(localStorage.getItem("allTasks")));
 }
 
 function displayTask(task) {

@@ -95,8 +95,7 @@ function displayAddNewTask() {
             document.getElementById("task-duedate").value,
             document.getElementById("task-priority").value
         );
-    
-        console.log(newTask);
+
         task.addTask(newTask);
         form.reset();
     
