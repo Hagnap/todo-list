@@ -134,6 +134,9 @@ function displayAddNewProject() {
     submitBtn.setAttribute("type", "submit");
     submitBtn.textContent = "Submit";
     form.appendChild(submitBtn);
+    form.addEventListener("click",(e) => {
+        console.log("CLICK CLACK");
+    });
 
     content.appendChild(form);
 }
@@ -223,7 +226,7 @@ function displayMonthsTask() {
     contentGridTopSection.setAttribute("id", "contentGridTopSection");
 
     var allTasksHeader = document.createElement("h1");
-    allTasksHeader.textContent = "Today's Tasks";
+    allTasksHeader.textContent = "This Month's Tasks";
 
     contentGridTopSection.appendChild(allTasksHeader);
 
