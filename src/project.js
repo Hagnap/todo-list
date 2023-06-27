@@ -23,7 +23,7 @@ const projectCollection = (() => {
         console.log("No projects are present");
     }
 
-    return { tasks };
+    return { projects };
 })();
 
 export {Project, projectCollection};
