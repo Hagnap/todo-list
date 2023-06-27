@@ -1,11 +1,12 @@
-const Project = () => {
-    tasks = [];
+const Project = (name) => {
+    let tasks = [];
+    let projectName = name;
 
     const addTask = (task) => {
         tasks.push(task);
     }
 
-    return { tasks, addTask };
+    return { projectName, tasks, addTask };
 }
 
 const projectCollection = (() => {
@@ -25,4 +26,4 @@ const projectCollection = (() => {
     return { tasks };
 })();
 
-export {Project};
+export {Project, projectCollection};

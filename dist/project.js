@@ -16,7 +16,7 @@
   \************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   Project: () => (/* binding */ Project)\n/* harmony export */ });\nconst Project = () => {\n    tasks = [];\n\n    const addTask = (task) => {\n        tasks.push(task);\n    }\n\n    return { tasks, addTask };\n}\n\n\n\n//# sourceURL=webpack://todo-list/./src/project.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   Project: () => (/* binding */ Project),\n/* harmony export */   projectCollection: () => (/* binding */ projectCollection)\n/* harmony export */ });\nconst Project = (name) => {\n    let tasks = [];\n    let projectName = name;\n\n    const addTask = (task) => {\n        tasks.push(task);\n    }\n\n    return { projectName, tasks, addTask };\n}\n\nconst projectCollection = (() => {\n    let projects = []\n    let storedProjects = JSON.parse(window.localStorage.getItem(\"allProjects\"));\n    \n    if(storedProjects) {\n        console.log(\"Projects are present\");\n        for(let index in storedProjects.projects) {\n            projects.push(storedProjects.projects[index]);\n        }\n    }\n    else {\n        console.log(\"No projects are present\");\n    }\n\n    return { tasks };\n})();\n\n\n\n//# sourceURL=webpack://todo-list/./src/project.js?");
 
 /***/ })
 

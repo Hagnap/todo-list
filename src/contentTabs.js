@@ -125,6 +125,7 @@ function displayAddNewProject() {
     var projectNameLabel = document.createElement("label");
     projectNameLabel.textContent = "Name of Project\t";
     var projectNameInput = document.createElement("input");
+    projectNameInput.setAttribute("id", "project-name");
     projectNameInput.required = true;
     projectNameDiv.appendChild(projectNameLabel);
     projectNameDiv.appendChild(projectNameInput);
@@ -135,7 +136,12 @@ function displayAddNewProject() {
     submitBtn.textContent = "Submit";
     form.appendChild(submitBtn);
     form.addEventListener("click",(e) => {
-        console.log("CLICK CLACK");
+        e.preventDefault();
+
+        var newProject = task.Task(document.getElementById("project-name").value);
+
+        task.addTask(newTask);
+        form.reset();
     });
 
     content.appendChild(form);
