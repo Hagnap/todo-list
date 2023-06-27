@@ -121,10 +121,11 @@ function displayAddNewProject() {
 
     var projectNameDiv = document.createElement("div");
     var projectNameLabel = document.createElement("label");
-    projectNameLabel.textContent = "Name of Project\t";
+    projectNameLabel.textContent = "Name of Project (24 char limit)\t";
     var projectNameInput = document.createElement("input");
     projectNameInput.setAttribute("id", "project-name");
     projectNameInput.required = true;
+    projectNameInput.maxLength = 24;
     projectNameDiv.appendChild(projectNameLabel);
     projectNameDiv.appendChild(projectNameInput);
     form.appendChild(projectNameDiv);
@@ -136,9 +137,16 @@ function displayAddNewProject() {
     form.addEventListener("submit",(e) => {
         e.preventDefault();
 
-        var newProject = Project.Project(document.getElementById("project-name").value);
+        if(Project.projectCollection.projects.length >= 10 ) {
+            alert("ERROR: Reached project limit (10)");
+        }
+        else {
 
-        Project.addProject(newProject);
+            var newProject = Project.Project(document.getElementById("project-name").value);
+
+            Project.addProject(newProject);
+        }
+
         form.reset();
     });
 

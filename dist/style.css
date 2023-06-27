@@ -109,6 +109,15 @@ navbar {
     align-items: center;
 }
 
+#projectsSection > h1 {
+    margin: 8px 0px;
+    height: 100%;
+}
+
+#addProject {
+    margin: 16px 0;
+}
+
 #tasksSection > div img{
     height: 30px;
     width: 30px;
@@ -118,11 +127,18 @@ navbar > div > div:hover {
     background-color: var(--sidebar-darker-background);
 }
 
-#projects-div {
-    display: grid;
+#addProject, 
+#projects-div > div {
+    display: flex;
     align-items: center;
     justify-content: flex-start;
-    grid-template-rows: repeat(auto-fit, 1fr);
+}
+
+#projects-div {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(auto-fit, 100%);
+    margin-left: -3px;
 }
 
 #projects-div:hover {
@@ -132,7 +148,7 @@ navbar > div > div:hover {
 /* Not consistent with rest of navbar */
 .project-div {
     height: 35px;
-    width: 250%;
+    width: 100%;
 
     border-radius: 5px;
     padding-left: 4px;
