@@ -10,7 +10,7 @@ const Task = (name, description, dueDate, priority) => {
 }
 
 const taskCollection = (() => {
-    let tasks = []
+    let tasks = [];
     let storedTasks = JSON.parse(window.localStorage.getItem("allTasks"));
     
     if(storedTasks) {
@@ -48,6 +48,19 @@ function displayTask(task) {
             taskDivLeft.appendChild(propertyElement);
         }
     }
+
+    var removeBtn = document.createElement("button");
+    removeBtn.setAttribute("class", "remove-task-btn");
+    removeBtn.setAttribute("data-index", `${document.querySelectorAll(".remove-task-btn").length}`);
+    removeBtn.textContent = "Remove Task";
+    taskDivLeft.appendChild(removeBtn);
+
+    removeBtn.addEventListener("click", (e) => {
+
+        taskCollection.tasks = (taskCollection.tasks.slice(0, Number(removeBtn.getAttribute("data-index"))).concat(taskCollection.tasks.slice(Number(removeBtn.getAttribute("data-index"))+1, taskCollection.tasks.length)));
+        window.localStorage.setItem("allTasks", JSON.stringify(taskCollection));
+        content.displayAllTasks();
+    });
 
     taskDiv.appendChild(taskDivLeft);
     taskDiv.appendChild(taskDivRight);

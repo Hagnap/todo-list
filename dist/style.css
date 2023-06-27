@@ -93,7 +93,7 @@ navbar {
 }
 
 #tasksSection > div,
-#projectsSection > div{
+#projectsSection > div {
 
     height: 35px;
     width: 90%;
@@ -102,14 +102,14 @@ navbar {
     padding-left: 4px;
 }
 
-navbar > div > div {
+#tasksSection > div {
 
     display: flex;
     justify-content: flex-start;
     align-items: center;
 }
 
-navbar > div > div img{
+#tasksSection > div img{
     height: 30px;
     width: 30px;
 }
@@ -120,10 +120,26 @@ navbar > div > div:hover {
 
 #projects-div {
     display: grid;
+    align-items: center;
+    justify-content: flex-start;
     grid-template-rows: repeat(auto-fit, 1fr);
 }
+
 #projects-div:hover {
     background-color: var(--sidebar-background);
+}
+
+/* Not consistent with rest of navbar */
+.project-div {
+    height: 35px;
+    width: 250%;
+
+    border-radius: 5px;
+    padding-left: 4px;
+}
+
+.project-div:hover {
+    background-color: var(--sidebar-darker-background);
 }
 
 article {

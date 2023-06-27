@@ -38,20 +38,13 @@ function addProject(project) {
 
     //location.reload();
     content.displayAllTasks();
-
-    /*
-    if(Project.projectCollection.projects) {
-        Project.projectCollection.projects.forEach((project) => {
-            Project.displayProject(project);
-        });
-    }
-    */
 }
 
 function displayProject(project) {
     var allProjectsDiv = document.querySelector("#projects-div");
 
     var projectDiv = document.createElement("div");
+    projectDiv.setAttribute("class", "project-div");
     projectDiv.textContent = project.projectName;
 
     allProjectsDiv.appendChild(projectDiv);
