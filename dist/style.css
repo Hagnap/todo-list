@@ -118,6 +118,14 @@ navbar > div > div:hover {
     background-color: var(--sidebar-darker-background);
 }
 
+#projects-div {
+    display: grid;
+    grid-template-rows: repeat(auto-fit, 1fr);
+}
+#projects-div:hover {
+    background-color: var(--sidebar-background);
+}
+
 article {
     background-color: var(--todo-background);
     padding-top: 32px;

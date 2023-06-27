@@ -1,6 +1,6 @@
 import * as content from "./contentTabs";
-import * as task from "./task";
-import * as project from "./project";
+import * as Task from "./task";
+import * as Project from "./project";
 import { displayTask } from "./task";
 
 function createInitialWebpage() {
@@ -76,12 +76,16 @@ function populateNavbar() {
     var projectsText = document.createElement("h1");
     projectsText.textContent = "Projects";
 
-    var addProjects = document.createElement('div');
-    addProjects.setAttribute("id", "addProject");
-    addProjects.textContent = "+ Add Project";
+    var addProjectsButton = document.createElement('div');
+    addProjectsButton.setAttribute("id", "addProject");
+    addProjectsButton.textContent = "+ Add Project";
+
+    var projectsDiv = document. createElement('div');
+    projectsDiv.setAttribute("id", "projects-div")
     
     projectsSection.appendChild(projectsText);
-    projectsSection.appendChild(addProjects);
+    projectsSection.appendChild(addProjectsButton);
+    projectsSection.appendChild(projectsDiv);
 
     navbar.appendChild(tasksSection);
     navbar.appendChild(projectsSection);
@@ -123,3 +127,8 @@ populateNavbar();
 addEventLisiteners();
 content.displayAllTasks();
 
+if( Project.projectCollection.projects) {
+    Project.projectCollection.projects.forEach((project) => {
+        Project.displayProject(project);
+    });
+}

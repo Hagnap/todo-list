@@ -1,19 +1,19 @@
-import { Project } from "./project";
-import * as task from "./task";
+import * as Project from "./project";
+import * as Task from "./task";
 
 let date = new Date();
 
 function saveFormData() {
 
 
-    var newTask = task.Task(
+    var newTask = Task.Task(
         document.getElementById("task-name").value,
         document.getElementById("task-description").value,
         document.getElementById("task-duedate").value,
         document.getElementById("task-priority").value
     );
 
-    task.addTask(newTask);
+    Task.addTask(newTask);
 }
 
 function resetDiv() {
@@ -85,20 +85,18 @@ function displayAddNewTask() {
     var submitBtn = document.createElement("button");
     submitBtn.setAttribute("type", "submit");
     submitBtn.textContent = "Submit";
-    //submitBtn.addEventListener("submit", saveFormData);
-    //submitBtn.onclick = saveFormData;
     form.appendChild(submitBtn);
     form.addEventListener("submit", (e) => {
         e.preventDefault();
 
-        var newTask = task.Task(
+        var newTask = Task.Task(
             document.getElementById("task-name").value,
             document.getElementById("task-description").value,
             document.getElementById("task-duedate").value,
             document.getElementById("task-priority").value
         );
 
-        task.addTask(newTask);
+        Task.addTask(newTask);
         form.reset();
     
     });
@@ -135,12 +133,12 @@ function displayAddNewProject() {
     submitBtn.setAttribute("type", "submit");
     submitBtn.textContent = "Submit";
     form.appendChild(submitBtn);
-    form.addEventListener("click",(e) => {
+    form.addEventListener("submit",(e) => {
         e.preventDefault();
 
-        var newProject = task.Task(document.getElementById("project-name").value);
+        var newProject = Project.Project(document.getElementById("project-name").value);
 
-        task.addTask(newTask);
+        Project.addProject(newProject);
         form.reset();
     });
 
@@ -180,8 +178,8 @@ function displayAllTasks() {
 
     article.appendChild(contentGrid);
 
-    task.taskCollection.tasks.forEach(element => {
-        task.displayTask(element);
+    Task.taskCollection.tasks.forEach(element => {
+        Task.displayTask(element);
     });
 }
 
@@ -209,10 +207,10 @@ function displayTodaysTasks() {
 
     article.appendChild(contentGrid);
 
-    var todaysTask = task.taskCollection.tasks.filter(t => t.dueDate.split(" ")[1] == date.toISOString().split("T")[0]);
+    var todaysTask = Task.taskCollection.tasks.filter(t => t.dueDate.split(" ")[1] == date.toISOString().split("T")[0]);
 
     todaysTask.forEach((t) => {
-        task.displayTask(t);
+        Task.displayTask(t);
     });
 }
 
@@ -240,10 +238,10 @@ function displayMonthsTask() {
 
     article.appendChild(contentGrid);
 
-    var monthsTask = task.taskCollection.tasks.filter(t => new Date(t.dueDate.split(" ")[1]).getMonth() == date.getMonth());
+    var monthsTask = Task.taskCollection.tasks.filter(t => new Date(t.dueDate.split(" ")[1]).getMonth() == date.getMonth());
 
     monthsTask.forEach((t) => {
-        task.displayTask(t);
+        Task.displayTask(t);
     });
     
 }
