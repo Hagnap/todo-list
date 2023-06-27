@@ -96,7 +96,7 @@ function addEventLisiteners() {
     divs.forEach(item => {
 
         item.addEventListener("click", () => {
-            
+
             switch(item.getAttribute("id")) {
                 case "tasks":
                     content.displayAllTasks();
@@ -113,12 +113,26 @@ function addEventLisiteners() {
                 case "addProject":
                     content.displayAddNewProject();
                     break;
-    
+            
+                /*
+                case "projects-div":
+                    content.displayCurrentProject();
+                    break;
+                    
                 default:
                     content.displayAllTasks();
+                */
             }
         })
     }) 
+}
+
+function fillNavBarProjects() {
+    if( Project.projectCollection.projects) {
+        Project.projectCollection.projects.forEach((project) => {
+            Project.displayProject(project);
+        });
+    }
 }
 
 // MAIN CODE
@@ -126,9 +140,4 @@ createInitialWebpage();
 populateNavbar();
 addEventLisiteners();
 content.displayAllTasks();
-
-if( Project.projectCollection.projects) {
-    Project.projectCollection.projects.forEach((project) => {
-        Project.displayProject(project);
-    });
-}
+fillNavBarProjects();

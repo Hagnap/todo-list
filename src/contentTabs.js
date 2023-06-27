@@ -23,7 +23,9 @@ function resetDiv() {
     content = null;
 }
 
-function displayAddNewTask() {
+// If project is passed in we are adding a task to a project
+// Otherwise we are adding a task to the general list of tasks
+function displayAddNewTask(project) {
 
     resetDiv();
 
@@ -86,6 +88,7 @@ function displayAddNewTask() {
     submitBtn.setAttribute("type", "submit");
     submitBtn.textContent = "Submit";
     form.appendChild(submitBtn);
+
     form.addEventListener("submit", (e) => {
         e.preventDefault();
 
@@ -96,7 +99,16 @@ function displayAddNewTask() {
             document.getElementById("task-priority").value
         );
 
-        Task.addTask(newTask);
+        // Add taskt to project
+        if(project) {
+            project.tasks.push(newTask);
+            window.localStorage.setItem("allProjects", JSON.stringify(Project.projectCollection));
+            displayCurrentProject(project);
+        }
+        // Add task to general list of tasks
+        else {
+            Task.addTask(newTask);
+        }
         form.reset();
     
     });
@@ -254,4 +266,51 @@ function displayMonthsTask() {
     
 }
 
-export { displayAllTasks, displayMonthsTask, displayAddNewTask, displayAddNewProject, displayTodaysTasks };
+function displayProjectTasks(project) {
+
+}
+
+function displayCurrentProject(project) {
+
+    console.log(`In displayProject for ${project.projectName}`);
+
+    if(!project) {
+        return;
+    }
+
+    resetDiv();
+
+    var article = document.querySelector("article");
+    article.setAttribute("id", "todays-tasks");
+
+    var contentGrid = document.createElement("div");
+    contentGrid.setAttribute("id", "content-grid");
+
+    var contentGridTopSection = document.createElement("div");
+    contentGridTopSection.setAttribute("id", "contentGridTopSection");
+
+    var projectHeader = document.createElement("h1");
+    projectHeader.textContent = `Task(s) for ${project.projectName}`;
+
+    var addTaskButton = document.createElement("button");
+    addTaskButton.textContent = "Add Task";
+    addTaskButton.addEventListener("click", (e) => {
+        console.log("132456789");
+        displayAddNewTask(project);
+        
+    });
+
+    contentGridTopSection.appendChild(projectHeader);
+    contentGridTopSection.appendChild(addTaskButton);
+
+    contentGrid.appendChild(contentGridTopSection);
+
+    article.appendChild(contentGrid);
+
+    project.tasks.forEach((t) => {
+        //Task.displayTask(t);
+        console.log(t);
+    });
+}
+
+export { displayCurrentProject, displayAllTasks, displayMonthsTask, displayAddNewTask, displayAddNewProject, displayTodaysTasks };

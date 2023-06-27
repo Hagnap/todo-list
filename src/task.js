@@ -1,4 +1,5 @@
-import * as content from "./contentTabs";
+import * as Content from "./contentTabs";
+import * as Project from "./project"
 
 const Task = (name, description, dueDate, priority) => {
 
@@ -59,7 +60,9 @@ function displayTask(task) {
 
         taskCollection.tasks = (taskCollection.tasks.slice(0, Number(removeBtn.getAttribute("data-index"))).concat(taskCollection.tasks.slice(Number(removeBtn.getAttribute("data-index"))+1, taskCollection.tasks.length)));
         window.localStorage.setItem("allTasks", JSON.stringify(taskCollection));
-        content.displayAllTasks();
+        //window.localStorage.setItem("allProjects", JSON.stringify(Project.projectCollection));
+            
+        Content.displayAllTasks();
     });
 
     taskDiv.appendChild(taskDivLeft);
@@ -75,7 +78,7 @@ function addTask(task) {
     window.localStorage.setItem("allTasks", JSON.stringify(taskCollection));
 
     //location.reload();
-    content.displayAllTasks();
+    Content.displayAllTasks();
 }
 
 

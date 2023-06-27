@@ -46,6 +46,9 @@ function displayProject(project) {
     var projectDiv = document.createElement("div");
     projectDiv.setAttribute("class", "project-div");
     projectDiv.textContent = project.projectName;
+    projectDiv.addEventListener("click", (e) => {
+        content.displayCurrentProject(project);
+    });
 
     allProjectsDiv.appendChild(projectDiv);
 }
