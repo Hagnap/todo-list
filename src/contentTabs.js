@@ -242,8 +242,8 @@ function displayAddNewProject() {
         }
         else {
 
-            var newProject = Project.Project(document.getElementById("project-name").value);
-
+            console.log(Project.projectCollection.projects.length);
+            var newProject = Project.Project(document.getElementById("project-name").value, );
             Project.addProject(newProject);
         }
 
@@ -365,7 +365,7 @@ function displayCurrentProject(project) {
     resetDiv();
 
     var article = document.querySelector("article");
-    article.setAttribute("id", "todays-tasks");
+    article.setAttribute("id", "project-tasks");
 
     var contentGrid = document.createElement("div");
     contentGrid.setAttribute("id", "content-grid");
@@ -378,14 +378,23 @@ function displayCurrentProject(project) {
 
     var addTaskButton = document.createElement("button");
     addTaskButton.textContent = "Add Task";
+    addTaskButton.setAttribute("id", "add-task-button");
     addTaskButton.addEventListener("click", (e) => {
-        console.log("132456789");
         displayAddNewTask(project);
         
     });
 
+    var deleteProject = document.createElement("button");
+    deleteProject.textContent = "Delete Project";
+    deleteProject.setAttribute("class", "delete-project-button");
+
+    deleteProject.addEventListener("click", (e) => {
+        Project.deleteProject(project, );
+    });
+
     contentGridTopSection.appendChild(projectHeader);
     contentGridTopSection.appendChild(addTaskButton);
+    contentGridTopSection.appendChild(deleteProject);
 
     contentGrid.appendChild(contentGridTopSection);
 
@@ -396,4 +405,4 @@ function displayCurrentProject(project) {
     });
 }
 
-export { displayCurrentProject, displayAllTasks, displayMonthsTask, displayAddNewTask, displayAddNewProject, displayTodaysTasks, editTask };
+export { resetDiv, displayCurrentProject, displayAllTasks, displayMonthsTask, displayAddNewTask, displayAddNewProject, displayTodaysTasks, editTask };

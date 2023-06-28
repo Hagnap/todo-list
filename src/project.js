@@ -1,15 +1,10 @@
-import * as content from "./contentTabs"
+import * as Content from "./contentTabs";
+import * as Index from "./index";
 
 const Project = (projectName) => {
     let tasks = [];
 
-    /*
-    const addTask = (task) => {
-        tasks.push(task);
-    }
-    */
-
-    return { projectName, tasks /*,  addTask */ };
+    return { projectName, tasks};
 }
 
 const projectCollection = (() => {
@@ -37,7 +32,7 @@ function addProject(project) {
     displayProject(project);
 
     //location.reload();
-    content.displayAllTasks();
+    Content.displayAllTasks();
 }
 
 function displayProject(project) {
@@ -47,10 +42,29 @@ function displayProject(project) {
     projectDiv.setAttribute("class", "project-div");
     projectDiv.textContent = project.projectName;
     projectDiv.addEventListener("click", (e) => {
-        content.displayCurrentProject(project);
+        Content.displayCurrentProject(project);
     });
 
     allProjectsDiv.appendChild(projectDiv);
 }
 
-export {Project, projectCollection, addProject, displayProject};
+function deleteProject(project, index) {
+
+    console.log(index);
+    project;
+    for(let i = 0; i < projectCollection.projects.length; i++) {
+
+        
+        if(project.projectName == projectCollection.projects[i].projectName) {
+            projectCollection.projects = (projectCollection.projects.slice(0, i).concat(projectCollection.projects.slice(i+1, projectCollection.projects.length)));
+            window.localStorage.setItem("allProjects", JSON.stringify(projectCollection));
+            Content.displayAllTasks();
+                    
+            Index.resetNavBarProjects();
+            Index.fillNavBarProjects();
+            break;
+        }
+    }
+}
+
+export {Project, projectCollection, addProject, deleteProject, displayProject};

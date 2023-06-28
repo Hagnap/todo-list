@@ -67,7 +67,7 @@ function displayTask(task, project=null) {
         }
 
         else {
-            project.tasks = taskCollection.tasks = (project.tasks.slice(0, Number(removeBtn.getAttribute("data-index"))).concat(project.tasks.slice(Number(removeBtn.getAttribute("data-index"))+1, project.tasks.length)));
+            project.tasks = (project.tasks.slice(0, Number(removeBtn.getAttribute("data-index"))).concat(project.tasks.slice(Number(removeBtn.getAttribute("data-index"))+1, project.tasks.length)));
             window.localStorage.setItem("allProjects", JSON.stringify(Project.projectCollection));
 
             Content.displayCurrentProject(project)

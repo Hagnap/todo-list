@@ -42,9 +42,10 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 8px;
 }
 #contentGridTopSection button {
-    width: 75%;
+    width: fit-content;
 }
 
 .task-div {
@@ -72,7 +73,7 @@ header {
 }
 
 .task-div-left > button {
-    width: 50%;
+    width: fit-content;
 }
 
 .task-div-right {

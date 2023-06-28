@@ -127,6 +127,11 @@ function addEventLisiteners() {
     }) 
 }
 
+function resetNavBarProjects() {
+    var div = document.querySelector("#projects-div");
+    div.innerHTML = "";
+}
+
 function fillNavBarProjects() {
     if( Project.projectCollection.projects) {
         Project.projectCollection.projects.forEach((project) => {
@@ -141,3 +146,5 @@ populateNavbar();
 addEventLisiteners();
 content.displayAllTasks();
 fillNavBarProjects();
+
+export {resetNavBarProjects, fillNavBarProjects, createInitialWebpage, populateNavbar, addEventLisiteners}
