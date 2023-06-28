@@ -61,7 +61,18 @@ header {
 }
 
 .task-div-left {
-    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    padding-right: 8px;
+
+    border-right: 2px dashed black;
+}
+
+.task-div-left > button {
+    width: 50%;
 }
 
 .task-div-right {
