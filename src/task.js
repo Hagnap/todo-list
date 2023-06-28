@@ -54,7 +54,6 @@ function displayTask(task, project=null) {
     removeBtn.setAttribute("class", "remove-task-btn");
     removeBtn.setAttribute("data-index", `${document.querySelectorAll(".remove-task-btn").length}`);
     removeBtn.textContent = "Remove Task";
-    taskDivLeft.appendChild(removeBtn);
 
     removeBtn.addEventListener("click", (e) => {
 
@@ -74,6 +73,27 @@ function displayTask(task, project=null) {
             Content.displayCurrentProject(project)
         }
     });
+    taskDivLeft.appendChild(removeBtn);
+
+    var editBtn = document.createElement("button");
+    editBtn.setAttribute("class", "edit-task-btn");
+    editBtn.setAttribute("data-index", `${document.querySelectorAll(".edit-task-btn").length}`);
+    editBtn.textContent = "Edit Task";
+
+    editBtn.addEventListener("click", (e) => {
+        console.log("EDIT");
+
+        if(!project) {
+            Content.editTask(task);
+        }
+
+        else {
+            Content.editTask(task, project);
+        }
+    });
+    taskDivLeft.appendChild(editBtn);
+
+
 
     taskDiv.appendChild(taskDivLeft);
     taskDiv.appendChild(taskDivRight);
@@ -90,6 +110,7 @@ function addTask(task) {
     //location.reload();
     Content.displayAllTasks();
 }
+
 
 
 export {Task, addTask, displayTask, taskCollection};

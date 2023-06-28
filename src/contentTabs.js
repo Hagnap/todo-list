@@ -1,5 +1,6 @@
 import * as Project from "./project";
 import * as Task from "./task";
+import * as Content from "./contentTabs";
 
 let date = new Date();
 
@@ -23,9 +24,96 @@ function resetDiv() {
     content = null;
 }
 
-// If project is passed in we are adding a task to a project
-// Otherwise we are adding a task to the general list of tasks
+function editTask(task, project=false) {
+    resetDiv();
+
+    console.log("In `displayAddNewTask()`");
+
+    var content = document.querySelector("article");
+
+    var form = document.createElement("form");
+    form.setAttribute("id", "task-form");
+
+    var formLegend = document.createElement("legend");
+    formLegend.textContent = "Edit Task";
+    form.appendChild(formLegend);
+
+    var taskNameDiv = document.createElement("div");
+    var taskNameLabel = document.createElement("label");
+    taskNameLabel.textContent = "Name of Task\t";
+    var taskNameInput = document.createElement("input");
+    taskNameInput.setAttribute("id", "task-name");
+    taskNameInput.required = true;
+    taskNameDiv.appendChild(taskNameLabel);
+    taskNameDiv.appendChild(taskNameInput);
+    form.appendChild(taskNameDiv);
+
+    var taskDescriptionDiv = document.createElement("div");
+    var taskDescriptionLabel = document.createElement("label");
+    taskDescriptionLabel.textContent = "Task Description\t";
+    var taskDescriptionInput = document.createElement("input");
+    taskDescriptionInput.setAttribute("id", "task-description");
+    taskDescriptionInput.required = true;
+    taskDescriptionDiv.appendChild(taskDescriptionLabel);
+    taskDescriptionDiv.appendChild(taskDescriptionInput);
+    form.appendChild(taskDescriptionDiv);
+
+    var taskDueDateDiv = document.createElement("div");
+    var taskDueDateLabel = document.createElement("label");
+    taskDueDateLabel.textContent = "Task Due Date Month\t";
+    var taskDueDateInput = document.createElement("input");
+    taskDueDateInput.setAttribute("id", "task-duedate");
+    taskDueDateInput.required = true;
+    taskDueDateInput.setAttribute("type", "date");
+    taskDueDateDiv.appendChild(taskDueDateLabel);
+    taskDueDateDiv.appendChild(taskDueDateInput);
+    form.appendChild(taskDueDateDiv);
+
+    var taskPriorityDiv = document.createElement("div");
+    var taskPriorityLabel = document.createElement("label");
+    taskPriorityLabel.textContent = "Priority (1 - 3)\t";
+    var taskPriorityInput = document.createElement("input");
+    taskPriorityInput.setAttribute("id", "task-priority");
+    taskPriorityInput.required = true;
+    taskPriorityInput.setAttribute("type", "number");
+    taskPriorityInput.setAttribute("min", "1");
+    taskPriorityInput.setAttribute("max", "3");
+    taskPriorityDiv.appendChild(taskPriorityLabel);
+    taskPriorityDiv.appendChild(taskPriorityInput);
+    form.appendChild(taskPriorityDiv);
+
+    var submitBtn = document.createElement("button");
+    submitBtn.setAttribute("type", "submit");
+    submitBtn.textContent = "Submit";
+    form.appendChild(submitBtn);
+
+    form.addEventListener("submit", (e) => {
+
+        e.preventDefault();
+
+        task.name = document.getElementById("task-name").value;
+        task.description = document.getElementById("task-description").value;
+        task.dueDate = document.getElementById("task-duedate").value;
+        task.priority = document.getElementById("task-priority").value;
+        
+        if(project) {
+            window.localStorage.setItem("allProjects", JSON.stringify(Project.projectCollection));
+        
+            displayCurrentProject(project);
+        }
+        else {
+            window.localStorage.setItem("allTasks", JSON.stringify(Task.taskCollection));
+            
+            displayAllTasks();
+        }
+    });
+
+    content.appendChild(form);
+}
+
 function displayAddNewTask(project) {
+    // If project is passed in we are adding a task to a project
+    // Otherwise we are adding a task to the general list of tasks
 
     resetDiv();
 
@@ -97,7 +185,7 @@ function displayAddNewTask(project) {
             document.getElementById("task-description").value,
             document.getElementById("task-duedate").value,
             document.getElementById("task-priority").value
-        );
+    );
 
         // Add taskt to project
         if(project) {
@@ -266,10 +354,6 @@ function displayMonthsTask() {
     
 }
 
-function displayProjectTasks(project) {
-
-}
-
 function displayCurrentProject(project) {
 
     console.log(`In displayProject for ${project.projectName}`);
@@ -312,4 +396,4 @@ function displayCurrentProject(project) {
     });
 }
 
-export { displayCurrentProject, displayAllTasks, displayMonthsTask, displayAddNewTask, displayAddNewProject, displayTodaysTasks };
+export { displayCurrentProject, displayAllTasks, displayMonthsTask, displayAddNewTask, displayAddNewProject, displayTodaysTasks, editTask };

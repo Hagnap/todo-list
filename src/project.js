@@ -53,8 +53,4 @@ function displayProject(project) {
     allProjectsDiv.appendChild(projectDiv);
 }
 
-function displayTask(task, project) {
-    
-}
-
 export {Project, projectCollection, addProject, displayProject};
