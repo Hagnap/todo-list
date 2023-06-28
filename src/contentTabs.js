@@ -4,19 +4,6 @@ import * as Content from "./contentTabs";
 
 let date = new Date();
 
-function saveFormData() {
-
-
-    var newTask = Task.Task(
-        document.getElementById("task-name").value,
-        document.getElementById("task-description").value,
-        document.getElementById("task-duedate").value,
-        document.getElementById("task-priority").value
-    );
-
-    Task.addTask(newTask);
-}
-
 function resetDiv() {
     var content = document.querySelector("article");
     content.innerHTML = "";
@@ -24,7 +11,7 @@ function resetDiv() {
     content = null;
 }
 
-function editTask(task, project=false) {
+function displayEditTask(task, project=false) {
     resetDiv();
 
     console.log("In `displayAddNewTask()`");
@@ -43,6 +30,8 @@ function editTask(task, project=false) {
     taskNameLabel.textContent = "Name of Task\t";
     var taskNameInput = document.createElement("input");
     taskNameInput.setAttribute("id", "task-name");
+    taskNameInput.setAttribute("placeholder", `${task.name}`);
+
     taskNameInput.required = true;
     taskNameDiv.appendChild(taskNameLabel);
     taskNameDiv.appendChild(taskNameInput);
@@ -53,6 +42,8 @@ function editTask(task, project=false) {
     taskDescriptionLabel.textContent = "Task Description\t";
     var taskDescriptionInput = document.createElement("input");
     taskDescriptionInput.setAttribute("id", "task-description");
+    taskDescriptionInput.setAttribute("placeholder", `${task.description}`);
+
     taskDescriptionInput.required = true;
     taskDescriptionDiv.appendChild(taskDescriptionLabel);
     taskDescriptionDiv.appendChild(taskDescriptionInput);
@@ -67,6 +58,8 @@ function editTask(task, project=false) {
     taskDueDateInput.setAttribute("type", "date");
     taskDueDateDiv.appendChild(taskDueDateLabel);
     taskDueDateDiv.appendChild(taskDueDateInput);
+    //taskDueDateInput.setAttribute("placeholder", `${task.dueDate}`);
+
     form.appendChild(taskDueDateDiv);
 
     var taskPriorityDiv = document.createElement("div");
@@ -78,6 +71,8 @@ function editTask(task, project=false) {
     taskPriorityInput.setAttribute("type", "number");
     taskPriorityInput.setAttribute("min", "1");
     taskPriorityInput.setAttribute("max", "3");
+    //taskPriorityInput.setAttribute("placeholder", `${task.priority}`);
+
     taskPriorityDiv.appendChild(taskPriorityLabel);
     taskPriorityDiv.appendChild(taskPriorityInput);
     form.appendChild(taskPriorityDiv);
@@ -168,6 +163,7 @@ function displayAddNewTask(project) {
     taskPriorityInput.setAttribute("type", "number");
     taskPriorityInput.setAttribute("min", "1");
     taskPriorityInput.setAttribute("max", "3");
+
     taskPriorityDiv.appendChild(taskPriorityLabel);
     taskPriorityDiv.appendChild(taskPriorityInput);
     form.appendChild(taskPriorityDiv);
@@ -406,4 +402,4 @@ function displayCurrentProject(project) {
     });
 }
 
-export { resetDiv, displayCurrentProject, displayAllTasks, displayMonthsTask, displayAddNewTask, displayAddNewProject, displayTodaysTasks, editTask };
+export { resetDiv, displayCurrentProject, displayAllTasks, displayMonthsTask, displayAddNewTask, displayAddNewProject, displayTodaysTasks, displayEditTask as editTask };
