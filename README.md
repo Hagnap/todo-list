@@ -1,7 +1,7 @@
 # todo-list
 
 ## Link
-https://jhagg26.github.io/todo-list/index.html
+https://jhagg26.github.io/todo-list/dist/
 
 ## Challenges Faced
 Personal Challenge: Use Semantic HTML
