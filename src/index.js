@@ -42,7 +42,7 @@ function populateNavbar() {
     var tasks = document.createElement('div');
     tasks.setAttribute("id", "tasks");
     var tasksImg = document.createElement('img');
-    tasksImg.src = "../images/tasks.svg";
+    tasksImg.src = "tasks.svg";
     tasks.appendChild(tasksImg);
     var tasksText = document.createElement('p');
     tasksText.textContent = "Tasks";
@@ -51,7 +51,7 @@ function populateNavbar() {
     var today = document.createElement('div');
     today.setAttribute("id", "today");
     var todayImg = document.createElement('img');
-    todayImg.src = "../images/today.svg";
+    todayImg.src = "today.svg";
     today.appendChild(todayImg);
     var tasksText = document.createElement('p');
     tasksText.textContent = "Today";
@@ -60,7 +60,7 @@ function populateNavbar() {
     var month = document.createElement('div');
     month.setAttribute("id", "month");
     var monthImg = document.createElement('img');
-    monthImg.src = "../images/month.svg";
+    monthImg.src = "month.svg";
     month.appendChild(monthImg);
     var monthText = document.createElement('p');
     monthText.textContent = "Month";
