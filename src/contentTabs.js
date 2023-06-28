@@ -308,8 +308,7 @@ function displayCurrentProject(project) {
     article.appendChild(contentGrid);
 
     project.tasks.forEach((t) => {
-        //Task.displayTask(t);
-        console.log(t);
+        Task.displayTask(t, project);
     });
 }
 

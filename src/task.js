@@ -27,7 +27,7 @@ const taskCollection = (() => {
     return { tasks };
 })();
 
-function displayTask(task) {
+function displayTask(task, project=null) {
     var contentGrid = document.querySelector("#content-grid");
     //console.log(contentGrid);
     var taskDiv = document.createElement("div");
@@ -58,11 +58,21 @@ function displayTask(task) {
 
     removeBtn.addEventListener("click", (e) => {
 
-        taskCollection.tasks = (taskCollection.tasks.slice(0, Number(removeBtn.getAttribute("data-index"))).concat(taskCollection.tasks.slice(Number(removeBtn.getAttribute("data-index"))+1, taskCollection.tasks.length)));
-        window.localStorage.setItem("allTasks", JSON.stringify(taskCollection));
-        //window.localStorage.setItem("allProjects", JSON.stringify(Project.projectCollection));
-            
-        Content.displayAllTasks();
+        if(!project) {
+
+            taskCollection.tasks = (taskCollection.tasks.slice(0, Number(removeBtn.getAttribute("data-index"))).concat(taskCollection.tasks.slice(Number(removeBtn.getAttribute("data-index"))+1, taskCollection.tasks.length)));
+            window.localStorage.setItem("allTasks", JSON.stringify(taskCollection));
+            //window.localStorage.setItem("allProjects", JSON.stringify(Project.projectCollection));
+                
+            Content.displayAllTasks();
+        }
+
+        else {
+            project.tasks = taskCollection.tasks = (project.tasks.slice(0, Number(removeBtn.getAttribute("data-index"))).concat(project.tasks.slice(Number(removeBtn.getAttribute("data-index"))+1, project.tasks.length)));
+            window.localStorage.setItem("allProjects", JSON.stringify(Project.projectCollection));
+
+            Content.displayCurrentProject(project)
+        }
     });
 
     taskDiv.appendChild(taskDivLeft);
