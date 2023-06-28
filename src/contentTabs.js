@@ -315,7 +315,8 @@ function displayTodaysTasks() {
 
     article.appendChild(contentGrid);
 
-    var todaysTask = Task.taskCollection.tasks.filter(t => t.dueDate.split(" ")[1] == date.toISOString().split("T")[0]);
+    console.log(date.toISOString().split("T")[0]);
+    var todaysTask = Task.taskCollection.tasks.filter(t => t.dueDate.split(": ")[1] == date.toISOString().split("T")[0]);
 
     todaysTask.forEach((t) => {
         Task.displayTask(t);
@@ -326,7 +327,7 @@ function displayMonthsTask() {
 
     resetDiv();
 
-    console.log("In `displayTodaysTasks()`");
+    console.log("In `displayMonthsTasks()`");
 
     var article = document.querySelector("article");
     article.setAttribute("id", "todays-tasks");
