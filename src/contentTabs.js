@@ -282,6 +282,12 @@ function displayAllTasks() {
 
     article.appendChild(contentGrid);
 
+    Task.taskCollection.tasks.sort(function(a, b) {
+
+        return (new Date(a.dueDate.split(": ")[1]) - new Date(b.dueDate.split(": ")[1])) || (a.priority - b.priority);
+    });
+
+
     Task.taskCollection.tasks.forEach(element => {
         Task.displayTask(element);
     });
@@ -396,6 +402,11 @@ function displayCurrentProject(project) {
     contentGrid.appendChild(contentGridTopSection);
 
     article.appendChild(contentGrid);
+
+     project.tasks.sort(function(a, b) {
+
+        return (new Date(a.dueDate.split(": ")[1]) - new Date(a.dueDate.split(": ")[1])) || (a.priority - b.priority);
+    });
 
     project.tasks.forEach((t) => {
         Task.displayTask(t, project);
