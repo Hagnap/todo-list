@@ -4,7 +4,7 @@
 This project is a simple todo list. There are two ways to store data, tasks and projects. Tasks are things todo that are independent of eachother. Tasks have four elements; a name, description, due-date, and priory. Priority can be a value in the range of 1-3 where 1 is high priority and 3 is low priority. Projects store a collection of tasks that are related to eachother. Projects have two elements; a name and an array of tasks. To make sure the data is persistent LocalStorage was used, this was my first time using this API. 
 
 ## Link
-https://jhagg26.github.io/todo-list/dist/
+https://jhagg26.github.io/todo-list/
 
 ## Tech Stack
 
