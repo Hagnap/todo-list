@@ -396,8 +396,8 @@ function displayCurrentProject(project) {
     });
 
     contentGridTopSection.appendChild(projectHeader);
-    contentGridTopSection.appendChild(addTaskButton);
     contentGridTopSection.appendChild(deleteProject);
+    contentGridTopSection.appendChild(addTaskButton);
 
     contentGrid.appendChild(contentGridTopSection);
 
