@@ -28,7 +28,7 @@ header {
 
 #container {
     display: grid;
-    grid-template-rows: 75px 15fr 25px;
+    grid-template-rows: 75px 15fr 50px;
     height: 100%;
 }
 
@@ -203,9 +203,7 @@ article {
     
 }
 
-footer {
-    justify-content: center;
-}
+
 
 #project-form {
 
@@ -215,6 +213,7 @@ footer {
 #task-form {
 
     height: 60%;
+    display: flex;
 }
 
 form {
@@ -245,4 +244,38 @@ footer {
     background-color: var(--header-and-footer);
     display: flex;
     align-items: center;
+}
+
+footer {
+    justify-content: center;
+    gap: 16px;
+}
+
+#github-button,
+#github-button > img {
+    border-radius: 25px;
+    border: 2px solid var(--header-and-footer);
+}
+
+
+#github-button {
+    height: 40px;
+    width: 40px;
+    padding: 0;
+    margin: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#github-button:hover {
+    opacity: 0.7;
+}
+
+#github-button > img {
+    height: 40px;
+    width: 40px;
+    padding: 0;
+    margin: 0;
 }

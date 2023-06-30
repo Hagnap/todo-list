@@ -21,7 +21,20 @@ function createInitialWebpage() {
     todoSection.textContent = "To Do";
 
     var footer = document.createElement("footer");
-    footer.textContent = "Copyright © 2023 jhagg26";
+    
+    var footerText = document.createElement("p");
+    footerText.textContent = "Copyright © 2023 jhagg26";
+    var githubLogoLink = document.createElement("button");
+    githubLogoLink.innerHTML = "<img src='github-logo.svg'>";
+    githubLogoLink.setAttribute("id", "github-button");
+    githubLogoLink.addEventListener("click", (e) => {
+        var win = window.open("https://github.com/jhagg26/todo-list", '_blank');
+        win.focus();
+    });
+    
+    footer.appendChild(footerText);
+    footer.appendChild(githubLogoLink);
+    
 
     content.appendChild(navbar);
     content.appendChild(todoSection);
