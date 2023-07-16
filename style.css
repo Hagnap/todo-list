@@ -1,281 +1,267 @@
 @font-face {
-    font-family: customFont;
-    src: url("../roboto-main/RobotoMono-VariableFont_wght.ttf");
+  font-family: customFont;
+  src: url("../roboto-main/RobotoMono-VariableFont_wght.ttf");
 }
 
 * {
-    --header-and-footer: #465362;
-    --sidebar-background: #C4D7F2;
-    --sidebar-darker-background: #8a97aa;
-    --todo-background: #F0F7EE;
-    --todo-darker-background: rgb(197, 204, 196);
+  --header-and-footer: #465362;
+  --sidebar-background: #c4d7f2;
+  --sidebar-darker-background: #8a97aa;
+  --todo-background: #f0f7ee;
+  --todo-darker-background: rgb(197, 204, 196);
 
-    font-family: customFont;
-
+  font-family: customFont;
 }
 
 body {
-    height: 100vh;
-    margin: 0;
+  height: 100vh;
+  margin: 0;
 }
 
 header {
-    justify-content: left;
-    padding-left: 16px;
-    font-size: 32px;
-    font-weight: 600;
+  justify-content: left;
+  padding-left: 16px;
+  font-size: 32px;
+  font-weight: 600;
 }
 
 #container {
-    display: grid;
-    grid-template-rows: 75px 15fr 50px;
-    height: 100%;
+  display: grid;
+  grid-template-rows: 75px 15fr 50px;
+  height: 100%;
 }
 
 #content {
-    display: grid;
-    grid-template-columns: minmax(150px, 300px) 5fr;
+  display: grid;
+  grid-template-columns: minmax(150px, 300px) 5fr;
 }
 
 #contentGridTopSection {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
 }
 #contentGridTopSection button {
-    width: fit-content;
+  width: fit-content;
 }
 
 .task-div {
-    outline: 1px solid black;
-    border-radius: 5px;
+  outline: 1px solid black;
+  border-radius: 5px;
 
-    display: grid;
-    grid-template-columns: 2fr 6fr;
-    gap: 32px;
+  display: grid;
+  grid-template-columns: 2fr 6fr;
+  gap: 32px;
 
-    margin: 8px;
-    padding: 8px;
-    width: clamp(50%, 70%, 80%);
+  margin: 8px;
+  padding: 8px;
+  width: clamp(50%, 70%, 80%);
 }
 
 .task-div-left {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    gap: 8px;
-    padding-right: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding-right: 8px;
 
-    border-right: 2px dashed black;
+  border-right: 2px dashed black;
 }
 
 .task-div-left > button {
-    width: fit-content;
+  width: fit-content;
 }
 
 .task-div-right {
-    grid-template-rows: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
 }
 
 .task-div-name {
-    grid-row: 1 / 2;
+  grid-row: 1 / 2;
 }
 
 .task-div-dueDate {
-    grid-row: 2 / 3;
+  grid-row: 2 / 3;
 }
 
 .task-div-priority {
-    grid-row: 3 / 4;
+  grid-row: 3 / 4;
 }
 
 navbar {
-    background-color: var(--sidebar-background);
-    padding-left: 16px;
-    padding-top: 32px;
+  background-color: var(--sidebar-background);
+  padding-left: 16px;
+  padding-top: 32px;
 }
 
 #tasksSection {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 #tasksSection > div,
 #projectsSection > div {
+  height: 35px;
+  width: 90%;
 
-    height: 35px;
-    width: 90%;
-
-    border-radius: 5px;
-    padding-left: 4px;
+  border-radius: 5px;
+  padding-left: 4px;
 }
 
 #tasksSection > div {
-
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 #projectsSection > h1 {
-    margin: 8px 0px;
-    height: 100%;
+  margin: 8px 0px;
+  height: 100%;
 }
 
 #addProject {
-    margin: 16px 0;
+  margin: 16px 0;
 }
 
-#tasksSection > div img{
-    height: 30px;
-    width: 30px;
+#tasksSection > div img {
+  height: 30px;
+  width: 30px;
 }
 
 navbar > div > div:hover {
-    background-color: var(--sidebar-darker-background);
+  background-color: var(--sidebar-darker-background);
 }
 
-#addProject, 
+#addProject,
 #projects-div > div {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 #projects-div {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(auto-fit, 100%);
-    margin-left: -3px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(auto-fit, 100%);
+  margin-left: -3px;
 }
 
 #projects-div:hover {
-    background-color: var(--sidebar-background);
+  background-color: var(--sidebar-background);
 }
 
 /* Not consistent with rest of navbar */
 .project-div {
-    height: 35px;
-    width: 100%;
+  height: 35px;
+  width: 100%;
 
-    border-radius: 5px;
-    padding-left: 4px;
+  border-radius: 5px;
+  padding-left: 4px;
 }
 
 .project-div:hover {
-    background-color: var(--sidebar-darker-background);
+  background-color: var(--sidebar-darker-background);
 }
 
 article {
-    background-color: var(--todo-background);
-    padding-top: 32px;
+  background-color: var(--todo-background);
+  padding-top: 32px;
 
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 #all-tasks {
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }
 
-
 #content-grid {
-    width: 80%;
-    display: grid;
-    justify-items: center;
-    grid-template-columns: repeat(auto-fit, 1fr);
+  width: 80%;
+  display: grid;
+  justify-items: center;
+  grid-template-columns: repeat(auto-fit, 1fr);
 }
 
 #contentGridTopSection > button {
-    width: fit-content;
+  width: fit-content;
 }
-
 
 .grid-item {
-
-    
 }
 
-
-
 #project-form {
-
-    height: 20%;
+  height: 20%;
 }
 
 #task-form {
-
-    height: 60%;
-    display: flex;
+  height: 60%;
 }
 
 form {
-    border-radius: 5px;
-    outline: 1px solid black;
-    padding: 12px;
-    background-color: var(--todo-darker-background);
+  border-radius: 5px;
+  outline: 1px solid black;
+  padding: 12px;
+  background-color: var(--todo-darker-background);
 
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(6, minmax(50px, 75px));
-    justify-items: space-between;
-    align-items: center;
-
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(6, minmax(50px, 75px));
+  justify-items: space-between;
+  align-items: center;
 }
 
 legend {
-    width: 100%;
-    text-align: center;
+  width: 100%;
+  text-align: center;
 }
 
 form button {
-    justify-self: center;
+  justify-self: center;
 }
 
 header,
 footer {
-    background-color: var(--header-and-footer);
-    display: flex;
-    align-items: center;
+  background-color: var(--header-and-footer);
+  display: flex;
+  align-items: center;
 }
 
 footer {
-    justify-content: center;
-    gap: 16px;
+  justify-content: center;
+  gap: 16px;
 }
 
 #github-button,
 #github-button > img {
-    border-radius: 25px;
-    border: 2px solid var(--header-and-footer);
+  border-radius: 25px;
+  border: 2px solid var(--header-and-footer);
 }
 
-
 #github-button {
-    height: 40px;
-    width: 40px;
-    padding: 0;
-    margin: 0;
+  height: 40px;
+  width: 40px;
+  padding: 0;
+  margin: 0;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #github-button:hover {
-    opacity: 0.7;
+  opacity: 0.7;
 }
 
 #github-button > img {
-    height: 40px;
-    width: 40px;
-    padding: 0;
-    margin: 0;
+  height: 40px;
+  width: 40px;
+  padding: 0;
+  margin: 0;
 }
