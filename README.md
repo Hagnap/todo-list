@@ -6,7 +6,7 @@ This project is a simple todo list. There are two ways to store data, tasks and 
 
 ## Link
 
-https://jhagg26.github.io/todo-list/
+https://hagnap.github.io/todo-list/
 
 ## Tech Stack
 
